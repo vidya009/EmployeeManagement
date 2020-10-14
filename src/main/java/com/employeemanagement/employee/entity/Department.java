@@ -2,58 +2,72 @@ package com.employeemanagement.employee.entity;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "department")
 public class Department {
-
+	
 	@Id
-	@Column(name = "dept_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int dept_id;
+	@Column(name= "id")
+	private int id;
 	
-	@Column(name = "dept_name")
-	private String dept_name;
+	@Column(name = "deptName")
+	private String deptName;
 	
-	
-	@OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "deptEmp_fk", referencedColumnName = "dept_id")
+	@JsonIgnore
+	@OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Employee> employees;
+
 	
 	
 	
 	
-	
-	
-	
-	//getter setter
-	public int getDept_id() {
-		return dept_id;
+	public int getId() {
+		return id;
 	}
-	
-	public void setDept_id(int dept_id) {
-		this.dept_id = dept_id;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getDept_name() {
-		return dept_name;
+
+	public String getDeptName() {
+		return deptName;
 	}
-	public void setDept_name(String dept_name) {
-		this.dept_name = dept_name;
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 
 	@Override
 	public String toString() {
-		return "Department [dept_id=" + dept_id + ", dept_name=" + dept_name + "]";
+		return "Department [id=" + id + ", deptName=" + deptName + ", employees=" + employees + ", getId()=" + getId()
+				+ ", getDeptName()=" + getDeptName() + ", getEmployees()=" + getEmployees() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
+	
+	
+	
+	
 
 }

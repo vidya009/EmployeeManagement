@@ -12,9 +12,14 @@ import com.employeemanagement.employee.repository.UserRepository;
 public class UserService {
 
 	@Autowired
-	private UserRepository userrepository;
+	UserRepository userrepository;
 	
+	//Get: return user by username
+			public User getUserByUsername(String username){
+				return userrepository.findByUsername(username);
+			}
 	
+	/*
 	//Post: Save single user
 	public User saveUser(User user) {
 		
@@ -37,10 +42,7 @@ public class UserService {
 		return userrepository.findById(id).orElse(null);
 	}
 	
-	//Get: return user by username
-		public User getUserByUsername(String username){
-			return userrepository.findByUsername(username);
-		}
+	
 		
 	//delete
 		public String deleteUser(int id) {
@@ -57,6 +59,6 @@ public class UserService {
 		existingUser.setUsername(user.getUsername());
 		return userrepository.save(existingUser);
 	}
-		
+	*/	
 		
 }

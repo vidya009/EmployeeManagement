@@ -20,7 +20,12 @@ public class UserController {
 	@Autowired
 	private UserService userservice;
 	
-	
+	//Get user by username
+		@GetMapping("/userByUsername/{username}")
+		public User findUserByUsername(@PathVariable String username) {
+			return userservice.getUserByUsername(username);
+		}
+/*
 	@PostMapping("/addUser")
 	public User addUser(@RequestBody User user) {
 		return userservice.saveUser(user);
@@ -37,17 +42,14 @@ public class UserController {
 		return userservice.getUsers();
 	}
 	
+	
 	@GetMapping("/userById/{id}")
 	public User findUserById(@PathVariable int id) {
 		return userservice.getUserById(id);
 	}
 	
-	//Get user by username
-	@GetMapping("/userByUsername/{username}")
-	public User findUserByUsername(@PathVariable String username) {
-		return userservice.getUserByUsername(username);
-	}
-		
+	
+	
 	//put: update user
 		@PutMapping("/updateUser")
 		public User updateUser(@RequestBody User user) {
@@ -59,5 +61,6 @@ public class UserController {
 		public String deleteUser(@PathVariable int id) {
 			return userservice.deleteUser(id);
 		}
+	*/
 		
 }
