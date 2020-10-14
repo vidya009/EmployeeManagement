@@ -20,14 +20,13 @@ public class UserController {
 	@Autowired
 	private UserService userservice;
 	
-	//post: return user
+	
 	@PostMapping("/addUser")
 	public User addUser(@RequestBody User user) {
 		return userservice.saveUser(user);
 	}
 	
 	
-	//post: return list of user
 	@PostMapping("/addUsers")
 		public List<User> addUser(@RequestBody List<User> user) {
 			return userservice.saveUsers(user);
@@ -43,12 +42,13 @@ public class UserController {
 		return userservice.getUserById(id);
 	}
 	
+	//Get user by username
 	@GetMapping("/userByUsername/{username}")
 	public User findUserByUsername(@PathVariable String username) {
 		return userservice.getUserByUsername(username);
 	}
-	
-	//putt: update user
+		
+	//put: update user
 		@PutMapping("/updateUser")
 		public User updateUser(@RequestBody User user) {
 			return userservice.updateUser(user);
@@ -60,7 +60,4 @@ public class UserController {
 			return userservice.deleteUser(id);
 		}
 		
-	
-	
-	
 }
