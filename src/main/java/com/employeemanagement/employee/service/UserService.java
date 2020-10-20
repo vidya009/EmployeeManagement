@@ -14,51 +14,63 @@ public class UserService {
 	@Autowired
 	UserRepository userrepository;
 	
-	//Get: return user by username
+			//Get: Returns user by username
 			public User getUserByUsername(String username){
 				return userrepository.findByUsername(username);
 			}
 	
-	/*
-	//Post: Save single user
-	public User saveUser(User user) {
-		
-		return userrepository.save(user);
-	}
+			//Get: Returns all existing users
+			public List<User> getUsers(){
+				return userrepository.findAll();
+			}
+			
+			
+			//Get: Returns/search user by user id
+			public User getUserById(int id){
+				return userrepository.findById(id).orElse(null);
+			}
 	
-	//Post : save list of user
-	public List<User> saveUsers(List<User> users) {
-		
-		return userrepository.saveAll(users);
-	}
+			//Post: Save single user
+			public User saveUser(User user) {
+				
+				return userrepository.save(user);
+			}
 	
-	//Get: return all users
-	public List<User> getUsers(){
-		return userrepository.findAll();
-	}
-	
-	//Get: return user by id
-	public User getUserById(int id){
-		return userrepository.findById(id).orElse(null);
-	}
+			
 	
 	
-		
-	//delete
-		public String deleteUser(int id) {
-			userrepository.deleteById(id);
-			return "User removed !!" +id;
-		}
-		
-	// Put:  Update user
-	public User updateUser(User user) {
-		User existingUser=userrepository.findById(user.getId()).orElse(null);
-		existingUser.setEmail(user.getEmail());
-		existingUser.setId(user.getId());
-		existingUser.setPassword(user.getPassword());
-		existingUser.setUsername(user.getUsername());
-		return userrepository.save(existingUser);
-	}
-	*/	
+	
+			/*
+			
+			//Post : save list of user
+			public List<User> saveUsers(List<User> users) {
+				
+				return userrepository.saveAll(users);
+			}
+			
+			
+			//Get: return all users
+			public List<User> getUsers(){
+				return userrepository.findAll();
+			}
+			
+			
+				
+			//delete
+				public String deleteUser(int id) {
+					userrepository.deleteById(id);
+					return "User removed !!" +id;
+				}
+				
+			// Put:  Update user
+			public User updateUser(User user) {
+				User existingUser=userrepository.findById(user.getId()).orElse(null);
+				existingUser.setEmail(user.getEmail());
+				existingUser.setId(user.getId());
+				existingUser.setPassword(user.getPassword());
+				existingUser.setUsername(user.getUsername());
+				return userrepository.save(existingUser);
+			}
+			*/
 		
 }

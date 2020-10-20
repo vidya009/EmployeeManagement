@@ -3,6 +3,7 @@ package com.employeemanagement.employee.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,25 +23,18 @@ public class EmployeeService {
     @Autowired
      DepartmentRepository departmentRepository;
  
+    //get all employee list
     public List<Employee> getAllEmployees() {
  
         return employeeRepository.findAll();
     }
     
     
-    /*
-    public Employee getEmployeesByDeptId(int dept_id) {    
-    	return employeeRepository.findAllByDeptId(dept_id);
-    }
-    */
-    
-    
- 
-/*
- 
+   
 
+ 	//POST: Add/Save new employee
     public Employee addEmployee(Employee employee) {
-    	 
+   	 
         Department dept = departmentRepository.findById(employee.getDepartment().getId()).orElse(null);
         if (null == dept) {
             dept = new Department();
@@ -49,17 +43,40 @@ public class EmployeeService {
         employee.setDepartment(dept);
         return employeeRepository.save(employee);
     }
+    
+    
+    
+    // GET: Find/search list of employees by department id
+    public List<Employee> getEmployeesByDeptId(int dept_id) {    
+    	return employeeRepository.findAllByDeptId(dept_id);
+    }
+
+
+
+	public List<Department> getAllDeaprtments() {
+		// TODO Auto-generated method stub
+		return departmentRepository.findAll();
+	}
+    
+	
+	
+    
  
+/*
+ 
+ 
+ 	// PUT: Update existing employee 
     public Employee editEmployees(Employee entity) {
  
         return employeeRepository.save(entity);
     }
  
+ 	//DELETE: Delete existing employee
     public void deleteEmployees(Integer id) {
  
         employeeRepository.deleteById(id);
     }
-
 */
+ 
     
 }
