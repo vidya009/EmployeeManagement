@@ -58,18 +58,4 @@ public class EmployeeController {
 		return employeeService.getEmployeesByDeptId(dept_id);
 	}
 
-
-
-
-
-
-	/* 
-	@GetMapping("/hello")
-	ResponseEntity<String> hello() {
-	    return ResponseEntity.ok("Hello World!");
-	}
-	 */
-
-
-
 }

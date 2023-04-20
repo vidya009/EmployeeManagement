@@ -52,28 +52,11 @@ public class UserController {
 	
 		
 		/*
-		@PostMapping("/addUser")
-		public User addUser(@RequestBody User user) {
-			return userservice.saveUser(user);
-		}
-		
 		
 		@PostMapping("/addUsers")
 			public List<User> addUser(@RequestBody List<User> user) {
 				return userservice.saveUsers(user);
 			}
-		
-		@GetMapping("/users")
-		public List<User> findAllUsers(){
-			return userservice.getUsers();
-		}
-		
-		
-		@GetMapping("/userById/{id}")
-		public User findUserById(@PathVariable int id) {
-			return userservice.getUserById(id);
-		}
-		
 		
 		
 		//put: update user
